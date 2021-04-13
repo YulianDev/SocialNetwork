@@ -1,7 +1,7 @@
 import PostItem from "./Post/PostItem";
 import styles from './posts.module.scss';
 import React from 'react';
-import {addPostActionCreator, updatePostTextAreaActionCreator} from "../../../redux/store";
+import {addPostActionCreator, updatePostTextAreaActionCreator} from "../../../redux/profile-reducer";
 
 
 function Posts(props) {

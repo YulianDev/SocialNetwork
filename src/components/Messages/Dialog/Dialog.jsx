@@ -1,7 +1,7 @@
 import styles from './dialog.module.scss';
 import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
-import {addMessageActionCreator, updateMessageTextAreaActionCreator} from "../../../redux/store";
+import {addMessageActionCreator, updateMessageTextAreaActionCreator} from "../../../redux/messages-reducer";
 
 function Dialog(props) {
     let dialogs = props.dialogs.map(dialog => <DialogItem name={dialog.name} time={dialog.time} message={dialog.message}/>);
@@ -9,11 +9,11 @@ function Dialog(props) {
     let messageTextRef = React.createRef()
 
     let addMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.dispatch(addMessageActionCreator("Yuliia", "5:45"));
     }
 
-    let updateMessageTextArea = () => {
-        let message = messageTextRef.current.value;
+    let updateMessageTextArea = (e) => {
+        let message = e.target.value;
         props.dispatch(updateMessageTextAreaActionCreator(message));
     }
 
@@ -29,7 +29,7 @@ function Dialog(props) {
                 </div>
                 <div className="dialogForm">
                     <form className="form">
-                        <textarea className={styles.textarea} ref={messageTextRef} value={props.textAreaValue} onChange={updateMessageTextArea}></textarea>
+                        <textarea className={styles.textarea} value={props.textAreaValue} onChange={updateMessageTextArea}></textarea>
                         <button className={styles.btn} onClick={addMessage} type="button">Send</button>
                     </form>
                 </div>

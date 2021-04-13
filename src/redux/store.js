@@ -1,7 +1,9 @@
-const UPDATE_POST_TEXT_AREA = "UPDATE-POST-TEXT-AREA";
-const ADD_POST = "ADD-POST";
-const UPDATE_MESSAGE_TEXT_AREA = "UPDATE-MESSAGE-TEXT-AREA";
-const ADD_MESSAGE = "ADD-MESSAGE";
+import messageReducer from "./messages-reducer";
+import profileReducer from "./profile-reducer";
+
+
+
+
 
 const store = {
     _state: {
@@ -37,68 +39,21 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost()
-        } else if (action.type === UPDATE_POST_TEXT_AREA) {
-            this._updatePostTextArea(action.message);
-        } else if (action.type === UPDATE_MESSAGE_TEXT_AREA) {
-            this._updateMessageTextArea(action.message);
-        } else if (action.type === ADD_MESSAGE) {
-            this._addMessage(action.name, action.time);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messageReducer(this._state.messagesPage, action);
+        this._callSubscriber(this._state);
     },
     getState() {
         return this._state;
     },
     _callSubscriber() {},
-    _updatePostTextArea(message) {
-        this._state.profilePage.postTextAreaValue = message;
-        this._callSubscriber(this._state);
-    },
-    _addPost() {
-        let post = {
-            id:4,
-            message: this._state.profilePage.postTextAreaValue,
-        };
-        this._state.profilePage.posts.push(post);
-        this._updatePostTextArea("");
-        this._callSubscriber(this._state);
-    },
-    _updateMessageTextArea(message) {
-        this._state.messagesPage.messageTextAreaValue = message;
-        this._callSubscriber(this._state);
-    },
-    _addMessage(name, time) {
-        let message = {
-            id:3,
-            name: name,
-            time: time,
-            message: this._state.messagesPage.messageTextAreaValue,
-        };
-        this._state.messagesPage.dialogs.push(message);
-        this._updateMessageTextArea("");
-        this._callSubscriber(this._state);
-    },
     subscribe (observer) {
         this._callSubscriber = observer;
     }
 }
-export const addPostActionCreator = () => ({type: ADD_POST});
 
-export const updatePostTextAreaActionCreator = (message) => {
-    return  {type: UPDATE_POST_TEXT_AREA,
-             message: message,
-            }
-};
 
-export const updateMessageTextAreaActionCreator = (message) => {
-    return {
-        type: UPDATE_MESSAGE_TEXT_AREA,
-        message: message,
-    }
-};
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
 
 
 
