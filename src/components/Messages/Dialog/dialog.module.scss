@@ -1,0 +1,37 @@
+.dialog {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  position: relative;
+  margin-bottom: 15px;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    background-color: #333;
+  }
+}
+.name {
+  padding: 15px 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+.dialogList {
+  flex: 1 0 0;
+}
+
+.textarea {
+  display: block;
+  width: 70%;
+  height: 120px;
+  margin: 0 auto;
+}
+.btn {
+  display: block;
+  margin: 20px auto 0;
+  cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.header {
+    position: relative;
+    margin-bottom: 15px;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        background-color: #333;
+    }
+}
+.headerTitle {
+    padding: 15px 0;
+    font-size: 24px;
+    font-weight: 700;
+}

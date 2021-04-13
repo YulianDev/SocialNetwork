@@ -1,0 +1,24 @@
+.list {
+        padding: 20px;
+    }
+
+.item {
+        padding: 15px;
+        text-align: center;
+        list-style: none;
+        &:last-child {
+            padding-top: 35px;
+        }
+    }
+.link {
+        transition: color .6s;
+        cursor: pointer;
+        color: #333;
+        &:hover {
+            color: #61d9fa;
+        }
+    }
+.link.active {
+  color: #61d9fa;
+}
+

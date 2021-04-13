@@ -1,0 +1,42 @@
+.item {
+    margin: 35px 0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+    };
+    &::before {
+        top: 0;
+    }
+    &::after {
+        bottom: 0;
+    }
+}
+
+.author {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #61d9fa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.message {
+    padding: 15px 0 0 15px;
+    width: 100%;
+}

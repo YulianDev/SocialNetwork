@@ -1,0 +1,57 @@
+.posts {
+    max-width: 80%;
+    width: 100%;
+    margin: 45px auto 0;
+}
+
+.textarea {
+        display: block;
+        max-width: 60%;
+        width: 100%;
+        height: 125px;
+        margin: 0 auto 15px ;
+    }
+.btn {
+        display: block;
+        margin: 0 auto;
+        height: 35px;
+        width: 105px;
+        cursor: pointer;
+    }
+.item {
+        padding: 15px 0;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &::after, 
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+    }
+.author {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #61d9fa;
+        border-radius: 50%;
+    }
+.author-img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+.message {
+        width: 100%;
+        padding-left: 15px;
+    }
