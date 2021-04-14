@@ -1,28 +1,28 @@
 import PostItem from "./Post/PostItem";
 import styles from './posts.module.scss';
 import React from 'react';
-import {addPostActionCreator, updatePostTextAreaActionCreator} from "../../../redux/profile-reducer";
 
 
 function Posts(props) {
-    let posts = props.data.map(post => <PostItem message={post.message}/>)
+    let posts = props.posts.map(post => <PostItem message={post.message}/>)
 
-    let postTextRef = React.createRef()
 
-    let addPost = () => {
-        props.dispath(addPostActionCreator());
+
+    const onAddPost = () => {
+        debugger;
+        props.addPost();
     }
 
-    let onPostChange = () => {
-        let message = postTextRef.current.value;
-        props.dispath(updatePostTextAreaActionCreator(message));
+    let onPostChange = (e) => {
+        let message = e.target.value;
+        props.updatePostTextArea(message);
     }
 
     return (
         <div className={styles.posts}>
             <form className="posts_form">
-                <textarea className={styles.textarea} ref={postTextRef} value={props.postTextArea} onChange={onPostChange}></textarea>
-                <button className={styles.btn} type="button" onClick={addPost}>Post</button>
+                <textarea className={styles.textarea} value={props.postTextAreaValue} onChange={onPostChange}></textarea>
+                <button className={styles.btn} type="button" onClick={onAddPost}>Post</button>
             </form>
             <div className="posts_feed">
                 {

@@ -7,7 +7,7 @@ import {Route} from "react-router-dom";
 import Friends from "./components/Friends/Friends";
 import Settings from "./components/Settings/Settings";
 
-function App(props) {
+function App() {
 
     return (
             <div className="app-wrapper">
@@ -17,9 +17,9 @@ function App(props) {
                         <div className="main_inner">
                             <Aside/>
                             <div className="main_content">
-                                <Route path='/profile' render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
+                                <Route path='/profile' render={() => <Profile/>}/>
                                 <Route path='/friends' component={Friends}/>
-                                <Route path='/messages' render={() => <Messages state={props.state.messagesPage} dispatch={props.dispatch}/>}/>
+                                <Route path='/messages' render={() => <Messages />}/>
                                 <Route path='/settings' component={Settings}/>
                             </div>
                         </div>

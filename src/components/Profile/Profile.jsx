@@ -1,13 +1,13 @@
-import Header from "./Header/Header";
-import Posts from "./Posts/Posts";
+import HeaderContainer from "./Header/HeaderContainer";
+import PostsContainer from "./Posts/PostsContainer";
 
 
 
-function Profile(props) {
+function Profile() {
     return (
         <div className="profile">
-            <Header data={props.state.generalInfo}/>
-            <Posts data={props.state.posts} postTextArea={props.state.postTextAreaValue} dispath={props.dispatch}/>
+            <HeaderContainer />
+            <PostsContainer />
         </div>
     )
 

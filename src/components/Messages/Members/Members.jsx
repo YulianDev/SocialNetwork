@@ -2,7 +2,7 @@ import styles from './members.module.scss';
 import MembersItem from "./MembersItem/MembersItem";
 
 function Members(props) {
-    let members = props.members.map(member => <MembersItem to={member.id} name={member.name} date={member.date}/>)
+    let members = props.membersList.map(member => <MembersItem to={member.id} name={member.name} date={member.date}/>)
     return (
         <div className="members">
             <div className={styles.header}>

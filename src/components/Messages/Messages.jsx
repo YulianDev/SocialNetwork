@@ -1,15 +1,15 @@
 import styles from './messages.module.scss';
-import Dialog from "./Dialog/Dialog";
-import Members from "./Members/Members";
+import MembersContainer from "./Members/MembersContainer";
+import DialogContainer from "./Dialog/DialogContainer";
 
-function Messages(props) {
+function Messages() {
     return (
         <div className={styles.inner}>
             <div className={styles.members}>
-                <Members members={props.state.members}/>
+                <MembersContainer />
             </div>
             <div className={styles.dialog}>
-                <Dialog dialogs={props.state.dialogs} textAreaValue={props.state.messageTextAreaValue} dispatch={props.dispatch}/>
+                <DialogContainer />
             </div>
         </div>
     );
