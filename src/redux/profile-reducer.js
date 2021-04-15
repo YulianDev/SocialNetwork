@@ -19,16 +19,16 @@ const initState = {
 const profileReducer = (state = initState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let post = {
-                id:4,
-                message: state.postTextAreaValue,
-            };
-            state.posts.push(post);
-            state.postTextAreaValue = "";
-            return state;
+        return {
+            ...state,
+            posts: [...state.posts, {id:4, message: state.postTextAreaValue}],
+            postTextAreaValue: ""
+        };
         case UPDATE_POST_TEXT_AREA:
-            state.postTextAreaValue = action.message;
-            return state;
+            return {
+                ...state,
+                postTextAreaValue: action.message
+            }
         default:
             return state;
     }

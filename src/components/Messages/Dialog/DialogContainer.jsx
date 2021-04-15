@@ -2,21 +2,6 @@ import Dialog from "./Dialog";
 import {addMessageActionCreator, updateMessageTextAreaActionCreator} from "../../../redux/messages-reducer";
 import {connect} from "react-redux";
 
-/*function DialogContainer(props) {
-    const state = props.store.getState().messagePage;
-
-    const addMessage = (name, time) => props.store.dispatch(addMessageActionCreator(name, time));
-
-    const updateTextArea = (message) => {
-        props.store.dispatch(updateMessageTextAreaActionCreator(message));
-    }
-
-
-
-    return (
-            <Dialog dialogList={state.dialogs} textAreaValue={state.messageTextAreaValue} addMessage={addMessage} updateTextArea={updateTextArea}/>
-    );
-};*/
 const mapStateToProps = (state) => {
     return {
         dialogList: state.messagePage.dialogs,

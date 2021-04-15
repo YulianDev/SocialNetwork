@@ -4,8 +4,8 @@ import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Messages from "./components/Messages/Messages";
 import {Route} from "react-router-dom";
-import Friends from "./components/Friends/Friends";
 import Settings from "./components/Settings/Settings";
+import FriendsContainer from "./components/Friends/FriendsContainer";
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
                             <Aside/>
                             <div className="main_content">
                                 <Route path='/profile' render={() => <Profile/>}/>
-                                <Route path='/friends' component={Friends}/>
+                                <Route path='/friends' render={() => <FriendsContainer/>}/>
                                 <Route path='/messages' render={() => <Messages />}/>
                                 <Route path='/settings' component={Settings}/>
                             </div>

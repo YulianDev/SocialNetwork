@@ -6,7 +6,7 @@ const initState = {
         {id: 1, name: "Yulian", time: "4:10", message: "Hello! My name is Yulian!"},
         {id: 2, name: "Yuliia", time: "4:12", message: "Hello! I'm Yuliia! Nice to meet you, how are you?"},
     ],
-    messageTextAreaValue:"",
+    messageTextAreaValue: "",
     members: [
         {id: 1, name: "Yuliia", date: "9 April"},
         {id: 2, name: "Alesya", date: "9 April"},
@@ -20,21 +20,25 @@ const initState = {
 const messageReducer = (state = initState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            let message = {
-                id:3,
-                name: action.name,
-                time: action.time,
-                message: state.messageTextAreaValue,
+            return {
+                ...state,
+                dialogs: [...state.dialogs, {
+                    id: 3,
+                    name: action.name,
+                    time: action.time,
+                    message: state.messageTextAreaValue
+                }],
+                messageTextAreaValue: "",
             };
-            state.dialogs.push(message);
-            state.messageTextAreaValue = "";
-            return state;
         case UPDATE_MESSAGE_TEXT_AREA:
-            state.messageTextAreaValue = action.message;
-            return state;
+            return {
+                ...state,
+                messageTextAreaValue: action.message,
+            };
         default:
             return state;
-    };
+    }
+    ;
 };
 
 export const updateMessageTextAreaActionCreator = (message) => {
