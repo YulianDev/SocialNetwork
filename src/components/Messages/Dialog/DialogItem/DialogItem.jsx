@@ -1,5 +1,5 @@
 import styles from "./dialogItem.module.scss";
-import interlocutorImg from "../../../../images/icons/avater.png";
+import interlocutorImg from "../../../../assets/images/icons/avater.png";
 
 function DialogItem(props) {
     let name = props.name;

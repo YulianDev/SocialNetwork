@@ -1,13 +1,18 @@
-import HeaderContainer from "./Header/HeaderContainer";
-import PostsContainer from "./Posts/PostsContainer";
+
+import Header from "./Header/Header";
+import Loader from "../Common/Loader/Loader";
 
 
 
-function Profile() {
+function Profile(props) {
+    if (!props.profileInfo) {
+        return <Loader/>
+    }
     return (
         <div className="profile">
-            <HeaderContainer />
-            <PostsContainer />
+            <Header profileInfo={props.profileInfo}/>
+            {/*<HeaderContainer />
+            <PostsContainer />*/}
         </div>
     )
 

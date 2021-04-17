@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import styles from "./membersItem.module.scss";
-import img from "../../../../images/icons/avater.png";
+import img from "../../../../assets/images/icons/avater.png";
 
 
 function MembersItem(props) {

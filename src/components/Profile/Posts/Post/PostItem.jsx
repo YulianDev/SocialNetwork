@@ -1,4 +1,4 @@
-import icon from '../../../../images/icons/profile.png';
+import icon from '../../../../assets/images/icons/profile.png';
 import styles from './postItem.module.scss';
 function PostItem(props) {
     return (

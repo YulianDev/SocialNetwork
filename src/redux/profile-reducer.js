@@ -1,5 +1,6 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_POST_TEXT_AREA = "UPDATE-POST-TEXT-AREA";
+const SET_PROFILE_INFO = "SET_PROFILE_INFO";
 
 const initState = {
     posts: [
@@ -8,12 +9,7 @@ const initState = {
         {id:3, message:"How is your day going?"},
     ],
     postTextAreaValue: "Hek",
-    generalInfo: [
-        {section:"Birthday", data:"September 9"},
-        {section:"Current city", data:"Lviv"},
-        {section:"Studied at", data:"Lviv University of Trade and Economics"},
-        {section:"Website", data:"https://yuliandev.github.io/YulianKoval"},
-    ],
+    profileInfo: null,
 }
 
 const profileReducer = (state = initState, action) => {
@@ -29,6 +25,11 @@ const profileReducer = (state = initState, action) => {
                 ...state,
                 postTextAreaValue: action.message
             }
+        case SET_PROFILE_INFO:
+            return {
+                ...state,
+                profileInfo: action.profile,
+            }
         default:
             return state;
     }
@@ -41,5 +42,6 @@ export const updatePostTextAreaActionCreator = (message) => {
         message: message,
     }
 };
+export const setProfileInfo = (profile) => ({type: SET_PROFILE_INFO, profile})
 
 export default profileReducer;
