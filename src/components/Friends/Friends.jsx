@@ -1,22 +1,25 @@
+import * as axios from "axios";
 
-function Friends(props) {
+let Friends = (props) => {
 
-    return (
-        <div>
-            {
-                props.users.map(user =>
-                    <div className="{box}" id={user.id} >
-                        <img src={user.avatarImg} alt="" className="img"/>
-                        <p className="fullname">{user.fullName}</p>
-                        <div className="btn-box">{
-                            user.follow?<button className="{btn}" onClick={() => props.unfollowAction(user.id)}>Unfollow</button> :
-                                        <button className="{btn}" onClick={() => props.followAction(user.id)}>Follow</button>
-                        }</div>
-                    </div>
-                )
+    if (props.friends.length === 0) {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            props.setUsers(response.data.items)
             }
+        )
+        console.log("Success");
+    }
+
+
+    return <div>
+        { props.friends.map(user => <div key={user.id}>
+            <p>Name: {user.name}</p>
+            <div className="button-box">{ (user.follow) ? <button onClick={() => {props.toUnfollow(user.id)}}>Unfollow</button> : <button onClick={() => {props.toFollow(user.id)}}>Follow</button>}</div>
+        </div>)
+
+        }
         </div>
-    )
+
 }
 
 export default Friends;

@@ -7,6 +7,7 @@ import {Route} from "react-router-dom";
 import Settings from "./components/Settings/Settings";
 import FriendsContainer from "./components/Friends/FriendsContainer";
 
+
 function App() {
 
     return (
